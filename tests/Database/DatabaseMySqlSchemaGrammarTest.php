@@ -444,13 +444,6 @@ class DatabaseMySqlSchemaGrammarTest extends TestCase
 
         $this->assertCount(1, $statements);
         $this->assertSame('alter table `users` add constraint `users_foo_id_foreign` foreign key (`foo_id`) references `orders` (`id`) on delete cascade on update cascade', $statements[0]);
-
-        $blueprint = new Blueprint('users');
-        $blueprint->foreign('foo_id')->references('id')->on('orders')->restrict();
-        $statements = $blueprint->toSql($this->getConnection(), $this->getGrammar());
-
-        $this->assertCount(1, $statements);
-        $this->assertSame('alter table `users` add constraint `users_foo_id_foreign` foreign key (`foo_id`) references `orders` (`id`) on delete restrict on update restrict', $statements[0]);
     }
 
     public function testAddingIncrementingID()

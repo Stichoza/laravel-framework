@@ -83,14 +83,4 @@ class ForeignKeyDefinition extends Fluent
     {
         return $this->onUpdate('cascade')->onDelete('cascade');
     }
-
-    /**
-     * Indicate that updates and deletes should be restricted.
-     *
-     * @return $this
-     */
-    public function restrict()
-    {
-        return $this->onUpdate('restrict')->onDelete('restrict');
-    }
 }
